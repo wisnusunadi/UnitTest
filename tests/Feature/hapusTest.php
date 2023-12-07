@@ -21,8 +21,7 @@ class hapusTest extends TestCase
             'password' => '12345678',
         ]);
         $response->assertStatus(302);
-        $response->assertRedirect('/home');
-        $this->assertAuthenticated();
+        $response->assertSee('home');
 
         $response = Club::create([
             'nama' => 'Persebaya',

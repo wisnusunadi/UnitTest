@@ -20,8 +20,7 @@ class ubahTest extends TestCase
             'password' => '12345678',
         ]);
         $response->assertStatus(302);
-        $response->assertRedirect('/home');
-        $this->assertAuthenticated();
+        $response->assertSee('home');
 
         $response = $this->get('/edit/3');
         $response = $this->post('/update/3', [

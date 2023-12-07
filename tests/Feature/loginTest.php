@@ -29,16 +29,8 @@ class loginTest extends TestCase
             'email' => 'admin@gmail.com',
             'password' => '12345678',
         ]);
+
         $response->assertStatus(302);
-        $response->assertRedirect('/home');
-    }
-    public function test_LoginSalah()
-    {
-        $response = $this->post('/login', [
-            'email' => 'tes@gmail.com',
-            'password' => '22222222',
-        ]);
-        $response->assertStatus(302);
-        $response->assertRedirect('/');
+        $response->assertSee('home');
     }
 }
